@@ -9614,11 +9614,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\tests\\DotNet\\TodoApi\\TodoApi.csproj",
-      "projectName": "TodoApi",
-      "projectPath": "C:\\tests\\DotNet\\TodoApi\\TodoApi.csproj",
+      "projectUniqueName": "C:\\tests\\DotNet\\TestApi\\TestApi.csproj",
+      "projectName": "TestApi",
+      "projectPath": "C:\\tests\\DotNet\\TestApi\\TestApi.csproj",
       "packagesPath": "C:\\Users\\gainz\\.nuget\\packages\\",
-      "outputPath": "C:\\tests\\DotNet\\TodoApi\\obj\\",
+      "outputPath": "C:\\tests\\DotNet\\TestApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gainz\\AppData\\Roaming\\NuGet\\NuGet.Config",

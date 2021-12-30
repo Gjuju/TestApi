@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "3hjUVzjnzw2ta3oCSLqU8tAKfTZHtKzlZ6I9JPBGklk=",
-  "Source": "TodoApi",
-  "BasePath": "_content/TodoApi",
+  "Hash": "CMw3SBkQYLQQQgU68fxvFZRsM9vbF1TV2hjP565+/0Y=",
+  "Source": "TestApi",
+  "BasePath": "_content/TestApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

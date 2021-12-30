@@ -6,52 +6,52 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Models;
+using TestApi.Models;
 
-namespace TodoApi.Controllers
+namespace TestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TodoItemsController : ControllerBase
+    public class TestItemsController : ControllerBase
     {
-        private readonly TodoContext _context;
+        private readonly TestContext _context;
 
-        public TodoItemsController(TodoContext context)
+        public TestItemsController(TestContext context)
         {
             _context = context;
         }
 
-        // GET: api/TodoItems
+        // GET: api/TestItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
+        public async Task<ActionResult<IEnumerable<TestItem>>> GetTestItems()
         {
-            return await _context.TodoItems.ToListAsync();
+            return await _context.TestItems.ToListAsync();
         }
 
-        // GET: api/TodoItems/5
+        // GET: api/TestItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
+        public async Task<ActionResult<TestItem>> GetTestItem(long id)
         {
-            var todoItem = await _context.TodoItems.FindAsync(id);
+            var TestItem = await _context.TestItems.FindAsync(id);
 
-            if (todoItem == null)
+            if (TestItem == null)
             {
                 return NotFound();
             }
          
-            return todoItem;
+            return TestItem;
         }
 
-        // GET: api/TodoItems/name/"Luke"
+        // GET: api/TestItems/name/"Luke"
         [HttpGet("name/{name:alpha}")]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItemByName(string name)
+        public async Task<ActionResult<IEnumerable<TestItem>>> GetTestItemByName(string name)
         {
-            var todoItem = await _context.TodoItems.ToListAsync();
+            var TestItem = await _context.TestItems.ToListAsync();
 
 
-            var filtered = new List<TodoItem>();
+            var filtered = new List<TestItem>();
 
-            foreach (var item in todoItem)
+            foreach (var item in TestItem)
             {
                 if (item.Name == name)
                 {
@@ -67,16 +67,16 @@ namespace TodoApi.Controllers
             return filtered;
         }
 
-        // GET: api/TodoItems/age/5
+        // GET: api/TestItems/age/5
         [HttpGet("age/{age:int}")]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItemByAge(long age)
+        public async Task<ActionResult<IEnumerable<TestItem>>> GetTestItemByAge(long age)
         {
-            var todoItem = await _context.TodoItems.ToListAsync();
+            var TestItem = await _context.TestItems.ToListAsync();
 
 
-            var filtered = new List<TodoItem>();
+            var filtered = new List<TestItem>();
 
-            foreach (var item in todoItem)
+            foreach (var item in TestItem)
             {
                 if (item.Age == age)
                 {
@@ -92,17 +92,17 @@ namespace TodoApi.Controllers
             return filtered;
         }
 
-        // PUT: api/TodoItems/5
+        // PUT: api/TestItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
+        public async Task<IActionResult> PutTestItem(long id, TestItem TestItem)
         {
-            if (id != todoItem.Id)
+            if (id != TestItem.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(todoItem).State = EntityState.Modified;
+            _context.Entry(TestItem).State = EntityState.Modified;
 
             try
             {
@@ -110,7 +110,7 @@ namespace TodoApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TodoItemExists(id))
+                if (!TestItemExists(id))
                 {
                     return NotFound();
                 }
@@ -123,37 +123,37 @@ namespace TodoApi.Controllers
             return NoContent();
         }
 
-        // POST: api/TodoItems
+        // POST: api/TestItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
+        public async Task<ActionResult<TestItem>> PostTestItem(TestItem TestItem)
         {
-            _context.TodoItems.Add(todoItem);
+            _context.TestItems.Add(TestItem);
             await _context.SaveChangesAsync();
 
-            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-            return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
+            //return CreatedAtAction("GetTestItem", new { id = TestItem.Id }, TestItem);
+            return CreatedAtAction(nameof(GetTestItem), new { id = TestItem.Id }, TestItem);
         }
 
-        // DELETE: api/TodoItems/5
+        // DELETE: api/TestItems/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoItem(long id)
+        public async Task<IActionResult> DeleteTestItem(long id)
         {
-            var todoItem = await _context.TodoItems.FindAsync(id);
-            if (todoItem == null)
+            var TestItem = await _context.TestItems.FindAsync(id);
+            if (TestItem == null)
             {
                 return NotFound();
             }
 
-            _context.TodoItems.Remove(todoItem);
+            _context.TestItems.Remove(TestItem);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool TodoItemExists(long id)
+        private bool TestItemExists(long id)
         {
-            return _context.TodoItems.Any(e => e.Id == id);
+            return _context.TestItems.Any(e => e.Id == id);
         }
     }
 }

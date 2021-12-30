@@ -1,6 +1,6 @@
-namespace TodoApi.Models
+namespace TestApi.Models
 {
-    public class TodoItem
+    public class TestItem
     {
         public long Id { get; set; }
         public string? Name { get; set; }

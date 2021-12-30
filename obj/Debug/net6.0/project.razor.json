@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\tests\\DotNet\\TodoApi\\TodoApi.csproj",
+  "FilePath": "c:\\tests\\DotNet\\TestApi\\TestApi.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "TodoApi",
+  "RootNamespace": "TestApi",
   "Documents": [],
   "SerializationFormat": "0.2"
 }

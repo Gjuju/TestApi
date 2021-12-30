@@ -9,11 +9,11 @@
     }
   },
   "profiles": {
-    "TodoApi": {
+    "TestApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "api/todoitems",
+      "launchUrl": "api/Testitems",
       "applicationUrl": "https://localhost:7150;http://localhost:5039",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -22,7 +22,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/todoitems",
+      "launchUrl": "api/Testitems",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

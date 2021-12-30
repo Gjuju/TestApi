@@ -38,8 +38,58 @@ namespace TodoApi.Controllers
             {
                 return NotFound();
             }
-
+         
             return todoItem;
+        }
+
+        // GET: api/TodoItems/name/"Luke"
+        [HttpGet("name/{name:alpha}")]
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItemByName(string name)
+        {
+            var todoItem = await _context.TodoItems.ToListAsync();
+
+
+            var filtered = new List<TodoItem>();
+
+            foreach (var item in todoItem)
+            {
+                if (item.Name == name)
+                {
+                    filtered.Add(item);
+                }
+            }
+
+            if (filtered.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return filtered;
+        }
+
+        // GET: api/TodoItems/age/5
+        [HttpGet("age/{age:int}")]
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItemByAge(long age)
+        {
+            var todoItem = await _context.TodoItems.ToListAsync();
+
+
+            var filtered = new List<TodoItem>();
+
+            foreach (var item in todoItem)
+            {
+                if (item.Age == age)
+                {
+                    filtered.Add(item);
+                }
+            }
+
+            if (filtered.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return filtered;
         }
 
         // PUT: api/TodoItems/5
